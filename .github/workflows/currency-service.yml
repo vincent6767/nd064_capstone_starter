@@ -1,6 +1,12 @@
 name: UdacityShop Currency Service - Package with Docker
 
-on: push
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -21,6 +27,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: vincentbiasa6767/currencyservice
+          flavor: |
+            latest=true
       -
         name: Login to DockerHub
         uses: docker/login-action@v1
